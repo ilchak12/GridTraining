@@ -1,0 +1,515 @@
+@import "./grid.scss";
+@import "./variables.scss";
+@import "./mixins.scss";
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $fontRoboto;
+    font-size: 16px;
+    font-weight: 400;
+    color: $defColor;
+    display: grid;
+    grid-template-areas: 
+    "header"
+    "main"
+    "footer";
+}
+
+img {
+    width: 100%;
+    vertical-align: middle;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+}
+
+h2 {
+    font-size: 45px;
+    font-weight: 300;
+
+    @include laptop {
+        font-size: 38px;
+    }
+
+    @include tablet {
+        font-size: 36px;
+    }
+
+    @include mobile {
+        font-size: 34px;
+    }
+    
+    .bold {
+        font-weight: bold;
+    }
+
+    .regular {
+        font-weight: 400;
+    }
+
+    .black {
+        font-weight: 900;
+    }
+}
+
+.header-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: "slider head-main";
+    grid-auto-rows: auto;
+    grid-area: header;
+
+    @include mob-tab {
+        grid-template-columns: 100%;
+        grid-template-areas: 
+        "head-main"
+        "slider";
+    }
+
+    .section {
+        padding: 50px 60px;
+    }
+
+    .slider {
+        grid-area: slider;
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+
+            @include mob-tab {
+                height: 400px;
+            }
+
+            img {
+                max-width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+
+    .header-main {
+        background-color: #f3f3f3;
+        grid-area: head-main;
+
+        .menu {
+            .menu-icon {
+                height: 30px;
+                width: 30px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                cursor: pointer;
+
+                .line {
+                    height: 4px;
+                    width: 100%;
+                    background-color: $defColor;
+                }
+            }
+        }
+
+        .header-description {
+            .header-title {
+                margin-top: 70px;
+                margin-bottom: 60px;
+
+                @include tablet {
+                    margin: 25px 0;
+                }
+
+                @include mobile {
+                    margin: 15px 0;
+                }
+
+                h2 {
+                    font-size: 40px;
+                    line-height: 50px;
+
+                    @include laptop {
+                        font-size: 38px;
+                    }
+
+                    @include tablet {
+                        font-size: 36px;
+                    }
+
+                    @include mobile {
+                        font-size: 34px;
+                    }
+                }
+            }
+
+            .header-info {
+                p {
+                    font-size: 18px;
+                    margin-bottom: 40px;
+                    line-height: 20px;
+
+                    @include mob-tab {
+                        font-size: 16px;
+                        margin-bottom: 20px;
+                    }
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.section {
+    padding: 70px 60px;
+
+    @include tablet {
+        padding: 50px 60px;
+    }
+
+    @include mobile {
+        padding: 35px 45px;
+    }
+}
+
+.main-col {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 100%;
+    grid-template-areas: "services side-r";
+    grid-area: main;
+
+    @include mob-tab {
+        grid-template-rows: none;
+        grid-template-columns: 100%;
+        grid-template-areas: 
+        "side-r"
+        "services";
+    }
+}
+
+.col {
+    height: 100%;
+    grid-row: 1/3;
+    grid-column: 2;
+    grid-area: side-r;
+
+    @include mob-tab {
+        grid-row: 1;
+        grid-column: 1;
+        height: max-content;
+    }
+}
+
+.services {
+    background: url("../img/services-bg.png") no-repeat center;
+    background-size: cover;
+    box-shadow: inset 0 0 0 1000px rgba($color: #1e92af, $alpha: 0.75);
+    grid-area: services;
+    grid-row: 1/3;
+    grid-column: 1;
+
+    @include tablet {
+        grid-row: auto;
+        grid-column: auto;
+        height: max-content;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 15px;
+        text-align: center;
+    }
+
+    @include mobile {
+        grid-row: auto;
+        grid-column: auto;
+        height: max-content;
+        text-align: center;
+    }
+
+    .service {
+        margin-bottom: 80px;
+
+        @include tablet {
+            margin-bottom: 30px;
+        }
+
+        @include mobile {
+            margin-bottom: 20px;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+            
+            @include tablet {
+                grid-column: 1/3;
+                justify-self: center;
+            }
+        }
+    }
+}
+
+.history {
+    background: url("../img/history-bg.png") no-repeat center;
+    background-size: cover;
+    box-shadow: inset 0 0 0 1000px rgba($color: #fff4d2, $alpha: 0.9);
+    width: 100%;
+    height: 50%;
+
+    @include mob-tab {
+        height: max-content;
+    }
+}
+
+.dummy {
+    background: url("../img/dummy-bg.png") no-repeat center;
+    background-size: cover;
+    box-shadow: inset 0 0 0 1000px rgba($color: #162633, $alpha: 0.75);
+    width: 100%;
+    height: 50%;
+
+    @include mob-tab {
+        height: max-content;
+    }
+}
+
+.history.section, .dummy.section {
+    padding: 70px 150px 70px 60px;
+
+    @include laptop {
+        padding: 70px 110px 70px 60px;
+    }
+
+    @include tablet {
+        padding: 50px 60px;
+    }
+
+    @include mobile {
+        display: grid;
+        padding: 35px 45px;
+    }
+}
+
+.white-text {
+    color: #ffffff;
+}
+
+.title {
+    margin-bottom: 40px;
+
+    @include tablet {
+        margin-bottom: 25px;
+    }
+
+    @include mobile {
+        margin-bottom: 15px;
+    }
+}
+
+.description {
+    p {
+        line-height: 20px;
+    }
+}
+
+.btn {
+    margin-top: 50px;
+    padding: 15px 40px;
+    font-family: $fontRoboto;
+    border-radius: 10px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    @include tablet {
+        margin-top: 30px;
+    }
+
+    @include mobile {
+        margin-top: 30px;
+        justify-self: center;
+    }
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+.btn-black {
+    color: $defColor;
+    border: 1px solid $defColor;
+}
+
+.btn-white {
+    color: #ffffff;
+    border: 1px solid #ffffff;
+}
+
+.footer-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: "copyright contact";
+    grid-area: footer;
+
+    @include mob-tab {
+        grid-template-columns: none;
+        grid-template-areas: 
+        "contact"
+        "copyright";
+    }
+}
+
+.copyright {
+    background: url("../img/copyright-bg.png") no-repeat center;
+    background-size: cover;
+    box-shadow: inset 0 0 0 1000px rgba($color: #1d5367, $alpha: 0.75);
+    display: grid;
+    grid-area: copyright;
+
+    @include mob-tab {
+        justify-content: center;
+    }
+
+    .description {
+        align-self: end;
+
+        @include mob-tab {
+            justify-self: center;
+            text-align: center;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 30px;
+            
+            &:hover {
+                animation: spin 0.7s ease-in-out running;
+            }
+
+            @include mob-tab {
+                margin: 0 auto 30px;
+            }
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0);
+    }
+    50% {
+        transform: rotate(45deg);
+    }
+    100% {
+        transform: rotate(0);
+    }
+}
+
+.contact {
+    background: url("../img/contact-bg.png") no-repeat center;
+    background-size: cover;
+    box-shadow: inset 0 0 0 1000px rgba($color: #5a665f, $alpha: 0.5);
+    grid-area: contact;
+
+    .contact-form {
+        max-width: 600px;
+
+        @include mob-tab {
+            margin: 0 auto;
+        }
+        
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-column-gap: 10px;
+
+            @include mob-tab {
+                grid-template-columns: none;
+                grid-template-rows: 1fr 1fr;
+                grid-row-gap: 10px;
+            }
+        }
+
+        .def-input, .def-textarea {
+            padding: 15px 30px;
+            background-color: transparent;
+            color: white;
+            outline: none;
+            border: 1px solid #fff;
+            border-radius: 10px;
+
+            &::placeholder {
+                color: white;
+            }
+        }
+
+        .def-textarea {
+            width: 100%;
+            margin-top: 10px;
+        }
+    }
+}
+
+.social {
+    margin-top: 90px;
+
+    @include tablet {
+        margin-top: 50px;
+        text-align: center;
+    }
+
+    @include mobile {
+        margin-top: 30px;
+        text-align: center;
+    }
+
+    .social-list {
+        margin-top: 20px;
+        margin-bottom: 45px;
+        display: grid;
+        grid-template-columns: 40px 40px 40px;
+        grid-column-gap: 5px;
+
+        @include mob-tab {
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        li {
+            a {
+                text-align: center;
+                line-height: 40px;
+                color: #fff;
+                border-radius: 8px;
+                transition: all 0.3s linear;
+
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+
+            &:nth-child(1) a {
+                background-color: #345bb4;
+            }
+
+            &:nth-child(2) a {
+                background-color: #e64895;
+            }
+
+            &:nth-child(3) a {
+                background-color: #00b4ff;
+            }
+        }
+    }
+}
