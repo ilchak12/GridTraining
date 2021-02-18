@@ -326,6 +326,8 @@ h2 {
     background-color: transparent;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+    outline: none;
+
 
     @include tablet {
         margin-top: 30px;
@@ -334,6 +336,7 @@ h2 {
     @include mobile {
         margin-top: 30px;
         justify-self: center;
+        font-size: 18px;
     }
 
     &:hover {
