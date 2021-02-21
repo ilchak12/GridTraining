@@ -11,11 +11,6 @@ body {
     font-size: 16px;
     font-weight: 400;
     color: $defColor;
-    display: grid;
-    grid-template-areas: 
-    "header"
-    "main"
-    "footer";
 }
 
 img {
@@ -62,7 +57,6 @@ h2 {
     grid-template-columns: 2fr 1fr;
     grid-template-areas: "slider head-main";
     grid-auto-rows: auto;
-    grid-area: header;
 
     @include mob-tab {
         grid-template-columns: 100%;
@@ -184,7 +178,6 @@ h2 {
     grid-template-columns: 40% 60%;
     grid-template-rows: 100%;
     grid-template-areas: "services side-r";
-    grid-area: main;
 
     @include mob-tab {
         grid-template-rows: none;
@@ -358,8 +351,7 @@ h2 {
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-template-areas: "copyright contact";
-    grid-area: footer;
-
+    
     @include mob-tab {
         grid-template-columns: none;
         grid-template-areas: 

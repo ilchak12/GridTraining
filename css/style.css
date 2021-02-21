@@ -32,8 +32,6 @@ body {
   font-size: 16px;
   font-weight: 400;
   color: #262f32;
-  display: grid;
-  grid-template-areas: "header" "main" "footer";
 }
 
 img {
@@ -80,7 +78,6 @@ h2 .black {
   grid-template-columns: 2fr 1fr;
   grid-template-areas: "slider head-main";
   grid-auto-rows: auto;
-  grid-area: header;
 }
 @media (max-width: 767px) {
   .header-row {
@@ -210,7 +207,6 @@ h2 .black {
   grid-template-columns: 40% 60%;
   grid-template-rows: 100%;
   grid-template-areas: "services side-r";
-  grid-area: main;
 }
 @media (max-width: 767px) {
   .main-col {
@@ -416,7 +412,6 @@ h2 .black {
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-template-areas: "copyright contact";
-  grid-area: footer;
 }
 @media (max-width: 767px) {
   .footer-row {
